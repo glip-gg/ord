@@ -153,7 +153,7 @@ impl GlipInscribe {
     no_limit: bool,
   ) -> Result<(Transaction, Transaction, TweakedKeyPair)> {
     // let d = bitcoin::Address(destination);
-    println!("{}", destination);
+    println!("destination: {} and pubkey:{}", destination, destination.script_pubkey());
     let satpoint = if let Some(satpoint) = satpoint {
       satpoint
     } else {
