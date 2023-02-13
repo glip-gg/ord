@@ -56,6 +56,7 @@ pub(crate) struct GlipInscribe {
 
 impl GlipInscribe {
   pub(crate) fn run(self, options: Options) -> Result {
+    println!("options{}", options);
     let client = options.bitcoin_rpc_client_for_wallet_command(false)?;
 
     let inscription = Inscription::from_file(options.chain(), &self.file)?;
