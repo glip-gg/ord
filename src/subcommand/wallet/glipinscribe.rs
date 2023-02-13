@@ -225,7 +225,7 @@ impl GlipInscribe {
       satpoint,
       inscriptions,
       utxos,
-      commit_tx_address.clone(),
+      destination.clone(),
       change,
       commit_fee_rate,
       reveal_fee + TransactionBuilder::TARGET_POSTAGE,
