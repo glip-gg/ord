@@ -95,9 +95,12 @@ impl GlipInscribe {
 
     if self.dry_run {
       print_json(Output {
-        commit: unsigned_commit_tx.txid(),
-        reveal: reveal_tx.txid(),
-        inscription: reveal_tx.txid().into(),
+        // commit: unsigned_commit_tx.txid(),
+        // reveal: reveal_tx.txid(),
+        // inscription: reveal_tx.txid().into(),
+        commit: unsigned_commit_tx,
+        reveal: reveal_tx,
+        inscription: reveal_tx,
         fees,
       })?;
     } else {
