@@ -152,7 +152,8 @@ impl GlipInscribe {
     reveal_fee_rate: FeeRate,
     no_limit: bool,
   ) -> Result<(Transaction, Transaction, TweakedKeyPair)> {
-    print_json(destination)?;
+    // let d = bitcoin::Address(destination);
+    println!("{}", destination);
     let satpoint = if let Some(satpoint) = satpoint {
       satpoint
     } else {
