@@ -82,7 +82,7 @@ impl GlipInscribe {
         options.chain().network(),
         utxos.clone(),
         commit_tx_change,
-        reveal_tx_destination,
+        self.address, //reveal_tx_destination,
         self.commit_fee_rate.unwrap_or(self.fee_rate),
         self.fee_rate,
         self.no_limit,
