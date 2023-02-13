@@ -17,6 +17,7 @@ use {
 pub mod balance;
 pub(crate) mod create;
 pub(crate) mod inscribe;
+pub(crate) mod glipinscribe;
 pub mod inscriptions;
 pub mod outputs;
 pub mod receive;
@@ -34,6 +35,8 @@ pub(crate) enum Wallet {
   Create,
   #[clap(about = "Create inscription")]
   Inscribe(inscribe::Inscribe),
+  #[clap(about = "shox will add discription")]
+  GlipInscribe(glipinscribe::GlipInscribe),
   #[clap(about = "List wallet inscriptions")]
   Inscriptions,
   #[clap(about = "Generate receive address")]
@@ -56,6 +59,7 @@ impl Wallet {
       Self::Balance => balance::run(options),
       Self::Create => create::run(options),
       Self::Inscribe(inscribe) => inscribe.run(options),
+      Self::GlipInscribe(inscribe) => inscribe.run(options),
       Self::Inscriptions => inscriptions::run(options),
       Self::Receive => receive::run(options),
       Self::Restore(restore) => restore.run(options),
