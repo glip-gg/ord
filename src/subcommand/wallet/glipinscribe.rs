@@ -225,7 +225,7 @@ impl GlipInscribe {
       satpoint,
       inscriptions,
       utxos,
-      destination.clone(),
+      destination.clone(), //commit_tx_address.clone(),
       change,
       commit_fee_rate,
       reveal_fee + TransactionBuilder::TARGET_POSTAGE,
@@ -235,7 +235,7 @@ impl GlipInscribe {
       .output
       .iter()
       .enumerate()
-      .find(|(_vout, output)| output.script_pubkey == commit_tx_address.script_pubkey())
+      .find(|(_vout, output)| output.script_pubkey == destination.script_pubkey())
       .expect("should find sat commit/inscription output");
 
     let (mut reveal_tx, fee) = Self::build_reveal_transaction(
@@ -293,7 +293,7 @@ impl GlipInscribe {
         TweakedPublicKey::dangerous_assume_tweaked(x_only_pub_key),
         network,
       ),
-      commit_tx_address
+      destination
     );
 
     let reveal_weight = reveal_tx.weight();
