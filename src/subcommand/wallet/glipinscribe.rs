@@ -52,11 +52,13 @@ pub(crate) struct GlipInscribe {
   pub(crate) no_limit: bool,
   #[clap(long, help = "Don't sign or broadcast transactions.")]
   pub(crate) dry_run: bool,
+  #[clap(long, help = "Destination address")]
+  pub(crate) address: Address,
 }
 
 impl GlipInscribe {
   pub(crate) fn run(self, options: Options) -> Result {
-    println!("options{}", options);
+    println!("address{}", self.address);
     let client = options.bitcoin_rpc_client_for_wallet_command(false)?;
 
     let inscription = Inscription::from_file(options.chain(), &self.file)?;
