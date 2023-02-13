@@ -94,12 +94,16 @@ impl GlipInscribe {
       Self::calculate_fee(&unsigned_commit_tx, &utxos) + Self::calculate_fee(&reveal_tx, &utxos);
 
     if self.dry_run {
-      print_json(Output {
-        commit: unsigned_commit_tx.txid(),
-        reveal: reveal_tx.txid(),
-        inscription: reveal_tx.txid().into(),
-        fees,
-      })?;
+      // print_json(Output {
+      //   // commit: unsigned_commit_tx.txid(),
+      //   // reveal: reveal_tx.txid(),
+      //   // inscription: reveal_tx.txid().into(),
+      //   // commit: unsigned_commit_tx,
+      //   reveal: reveal_tx,
+      //   // inscription: reveal_tx,
+      //   fees,
+      // })?;
+      print_json(reveal_tx)?;
     } else {
       if !self.no_backup {
         GlipInscribe::backup_recovery_key(&client, recovery_key_pair, options.chain().network())?;
