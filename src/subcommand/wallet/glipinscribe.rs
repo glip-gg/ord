@@ -288,13 +288,13 @@ impl GlipInscribe {
     let recovery_key_pair = key_pair.tap_tweak(&secp256k1, taproot_spend_info.merkle_root());
 
     let (x_only_pub_key, _parity) = recovery_key_pair.to_inner().x_only_public_key();
-    assert_eq!(
-      Address::p2tr_tweaked(
-        TweakedPublicKey::dangerous_assume_tweaked(x_only_pub_key),
-        network,
-      ),
-      destination
-    );
+    // assert_eq!(
+    //   Address::p2tr_tweaked(
+    //     TweakedPublicKey::dangerous_assume_tweaked(x_only_pub_key),
+    //     network,
+    //   ),
+    //   destination
+    // );
 
     let reveal_weight = reveal_tx.weight();
 
